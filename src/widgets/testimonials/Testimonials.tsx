@@ -6,7 +6,7 @@ import { SITE } from "@/config/site";
 import Section from "@/shared/ui/Section";
 import SectionHeader from "@/shared/ui/SectionHeader";
 import Badge from "@/shared/ui/Badge";
-import { PawPrint, Star, Facebook, ExternalLink } from "lucide-react";
+import { Star, Facebook, ExternalLink } from "lucide-react";
 
 export default function Testimonials() {
   const t = useTranslations("testimonials");

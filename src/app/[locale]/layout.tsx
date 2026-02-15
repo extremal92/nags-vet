@@ -1,12 +1,15 @@
-import type {Metadata} from "next";
-import {Geist, Geist_Mono} from "next/font/google";
-import {NextIntlClientProvider, hasLocale} from "next-intl";
-import {getMessages, getTranslations, setRequestLocale} from "next-intl/server";
-import {notFound} from "next/navigation";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
+import { notFound } from "next/navigation";
 import "../globals.css";
-import {SITE} from "@/config/site";
-import type {AppLocale} from "@/i18n/routing";
-import {routing} from "@/i18n/routing";
+import { SITE } from "@/config/site";
+import { routing } from "@/i18n/routing";
 import Header from "@/widgets/header/Header";
 import Footer from "@/widgets/footer/Footer";
 
@@ -22,21 +25,18 @@ const geistMono = Geist_Mono({
 
 type LayoutProps = {
   children: React.ReactNode;
-  params: Promise<{locale: AppLocale}>;
+  params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata(
-  props: LayoutProps,
-): Promise<Metadata> {
-  const {locale} = await props.params;
+export async function generateMetadata(props: LayoutProps): Promise<Metadata> {
+  const { locale } = await props.params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
-  const t = await getTranslations({locale, namespace: "seo"});
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const t = await getTranslations({ locale, namespace: "seo" });
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
   const path = locale === routing.defaultLocale ? "/" : `/${locale}`;
   const url = new URL(path, baseUrl);
 
@@ -72,14 +72,11 @@ export async function generateMetadata(
 }
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: LayoutProps) {
-  const {locale} = await params;
+export default async function LocaleLayout({ children, params }: LayoutProps) {
+  const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -105,4 +102,3 @@ export default async function LocaleLayout({
     </html>
   );
 }
-

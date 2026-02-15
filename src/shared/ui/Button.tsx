@@ -5,12 +5,24 @@ import { motion } from "framer-motion";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 
+/** Props that conflict between React HTML and Framer Motion gesture handlers */
+const FRAMER_CONFLICT_PROPS = [
+  "onDrag",
+  "onDragStart",
+  "onDragEnd",
+  "onAnimationStart",
+  "onAnimationEnd",
+] as const;
+
 type ButtonProps = {
   children: ReactNode;
   variant?: ButtonVariant;
   href?: string;
   className?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+} & Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  (typeof FRAMER_CONFLICT_PROPS)[number]
+>;
 
 function getVariantClasses(variant: ButtonVariant) {
   if (variant === "secondary") {
@@ -52,12 +64,7 @@ export default function Button({
   }
 
   return (
-    <motion.button
-      type="button"
-      className={merged}
-      {...motionProps}
-      {...props}
-    >
+    <motion.button type="button" className={merged} {...motionProps} {...props}>
       {children}
     </motion.button>
   );
