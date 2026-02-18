@@ -42,8 +42,7 @@ export const SITE: SiteConfig = {
 
   social: {
     fb: "https://www.facebook.com/profile.php?id=61586948339146",
-    insta:
-      "https://www.instagram.com/explore/locations/111844597214751/anvet-clinica-veterinara/",
+    insta: "",
   },
 
   address: "Bulevardul Moscova 20/5, MD-2045, Chișinău, Молдова",
