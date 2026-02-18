@@ -15,13 +15,13 @@ export default function Header() {
     <header className="sticky top-0 z-30 border-b border-slate-100 bg-white backdrop-blur-md z-[101]">
       <Container className="flex h-20 items-center justify-between gap-6">
         <div className="flex items-center gap-3">
-          <div className="relative h-10 w-10 overflow-hidden rounded-xl">
+          <div className="relative h-10 overflow-hidden rounded-xl">
             <Image
               src={SITE.logo}
-              alt={t("logoAlt")}
-              fill
-              sizes="40px"
-              className="object-contain"
+              alt={t("logoAlt", { name: SITE.name })}
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain"
             />
           </div>
           {/* <div className="flex flex-col">

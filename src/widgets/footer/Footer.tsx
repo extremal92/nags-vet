@@ -15,13 +15,13 @@ export default function Footer() {
       <Container>
         <div className="grid gap-10 py-12 md:grid-cols-4 lg:gap-12 lg:py-16">
           <div className="space-y-4">
-            <div className="relative h-14 w-14 overflow-hidden">
+            <div className="relative h-14 overflow-hidden">
               <Image
                 src={SITE.logo}
                 alt={SITE.name}
-                fill
-                sizes="56px"
-                className="object-contain"
+                width={120}
+                height={56}
+                className="h-14 w-auto object-contain"
               />
             </div>
             <div>
