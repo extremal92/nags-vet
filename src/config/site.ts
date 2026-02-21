@@ -28,37 +28,37 @@ export type SiteConfig = {
 };
 
 const GEO = {
-  lat: 47.057335567937855,
-  lng: 28.867504050200598,
+  lat: 47.037095516063154,
+  lng: 28.860814336195958,
 } as const;
 
 export const SITE: SiteConfig = {
-  name: "Medvet Plus",
+  name: "Terra Vet",
 
-  logo: "/images/medvet-plus-logo.png",
-  ogImage: "/images/medvet-plus-og-image.jpg",
+  logo: "/images/terra-vet-logo.png",
+  ogImage: "/images/terra-vet-og-image.jpg",
 
-  phone: "+373 67 388 551",
+  phone: "+373 69 154 942",
 
   social: {
-    fb: "https://www.facebook.com/profile.php?id=61586948339146",
+    fb: "",
     insta: "",
   },
 
-  address: "Bulevardul Moscova 20/5, MD-2045, Chișinău, Молдова",
+  address: "Strada Tudor Vladimirescu 20, Chișinău, Молдова",
   geo: GEO,
 
   mapEmbedUrl: `https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1500!2d${GEO.lng}!3d${GEO.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDfCsDAyJzU2LjAiTiAyOMKwNTEnMjIuMSJF!5e0!3m2!1sro!2smd!4v1702300000000!5m2!1sro!2smd`,
 
-  rating: 4.5,
-  reviews: 43,
+  rating: 4.8,
+  reviews: 33,
 
   schedule: {
-    Mon: "09:00 – 18:00",
-    Tue: "09:00 – 18:00",
-    Wed: "09:00 – 18:00",
-    Thu: "09:00 – 18:00",
-    Fri: "09:00 – 18:00",
+    Mon: "09:00 – 17:00",
+    Tue: "09:00 – 17:00",
+    Wed: "09:00 – 17:00",
+    Thu: "09:00 – 17:00",
+    Fri: "09:00 – 17:00",
     Sat: "09:00 – 17:00",
     Sun: "closed",
   },
