@@ -10,6 +10,7 @@ import { SITE } from "@/config/site";
 export default function About() {
   const t = useTranslations("about");
   const name = SITE.name;
+  console.log(SITE.name);
   return (
     <Section
       id="about"
